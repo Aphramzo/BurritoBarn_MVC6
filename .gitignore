@@ -9,6 +9,7 @@
 *.dll.config
 *.cache
 *.suo
+*.ide
 # Include dlls if they’re in the NuGet packages directory
 !/packages/*/lib/*.dll
 !/packages/*/lib/*/*.dll
@@ -26,6 +27,8 @@ bin/
 obj/
 TestResults/
 css/
+wwwroot/
+node_modules/
 ###################
 # Web publish log #
 ###################
