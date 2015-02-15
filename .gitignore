@@ -27,7 +27,6 @@ bin/
 obj/
 TestResults/
 css/
-wwwroot/
 node_modules/
 ###################
 # Web publish log #
