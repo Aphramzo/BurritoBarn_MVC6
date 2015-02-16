@@ -1,0 +1,12 @@
+﻿{
+    "Data": {
+        "DefaultConnection": {
+            "ConnectionString": "connectionStringHere"
+        }
+    },
+    "EntityFramework": {
+        "BurritoBarnContext": {
+            "ConnectionStringKey":  "Data:DefaultConnection:ConnectionString"
+        }
+    }
+}
