@@ -1,14 +1,14 @@
 ﻿(function () {
     'use strict';
 
-    var restaurantServices = angular.module('restaurantServices', ['ngResource']);
+    angular
+        .module('restaurantServices', ['ngResource'])
+        .factory('Restaurant', Restaurant);
 
-    restaurantServices.factory('Restaurants', ['$resource',
-        function ($resource) {
-            return $resource('/api/restaurants', {}, {
-                query: {
-                    method: 'GET', params: {}, isArray: true
-                }
-            });
-        }]);
+    Restaurant.$inject = ['$resource'];
+
+    function Restaurant($resource) {
+        return $resource('/api/restaurants/:id');
+    }
+
 })();

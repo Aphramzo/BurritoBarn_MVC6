@@ -1,0 +1,32 @@
+﻿<div>
+    <h1>
+        Restaurants
+    </h1>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Category</th>
+                <th>Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="restaurant in restaurants">
+                <td>
+                    <a href="/restaurants/edit/{{restaurant.Id}}" class="btn btn-default btn-xs">edit</a>
+                    <a href="/restaurants/delete/{{restaurant.Id}}" class="btn btn-danger btn-xs">remove</a>
+                </td>
+                <td>
+                    {{restaurant.Category}}
+                </td>
+                <td>
+                    {{restaurant.Name}}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p>
+        <a href="/restaurants/add" class="btn btn-primary">Add Restaurant</a>
+    </p>
+</div>
