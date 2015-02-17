@@ -12,6 +12,11 @@ namespace BurritoBarn.api.Controllers
     {
         private readonly BurritoBarnContext db;
 
+        public RestaurantsController(BurritoBarnContext context)
+        {
+            db = context;
+        }
+
         // GET: api/values
         [HttpGet]
         public IEnumerable<Restaurant> Get()
