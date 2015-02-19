@@ -1,17 +1,10 @@
 ﻿<h1>Add Restaurant</h1>
 <div class="row">
     <div class="col-md-5">
-        <form ng-submit="edit()">
-            <div class="form-group">
-                <label for="Category">Category</label>
-                <input name="Category" class="form-control" ng-model="restaurant.Category" />
-            </div>
-            <div class="form-group">
-                <label for="Name">Name</label>
-                <input name="Name" class="form-control" ng-model="restaurant.Name" />
-            </div>
+        <form name="formEdit" ng-submit="edit()">
+            <ng-include src="'/views/partials/_editRestaurant.html'"></ng-include>
             <a href="/" class="btn btn-default">Cancel</a>
-            <button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-floppy-disk"></i> Save</button>
+            <button type="submit" class="btn btn-primary" ng-disabled="formEdit.$invalid"><i class="glyphicon glyphicon-floppy-disk"></i> Save</button>
         </form>
     </div>
 </div>

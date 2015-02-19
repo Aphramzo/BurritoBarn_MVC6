@@ -19,9 +19,13 @@
     function restaurantsAddController($scope, $location, Restaurant) {
         $scope.restaurant = new Restaurant();
         $scope.add = function () {
-            $scope.restaurant.$save(function () {
-                $location.path('/');
-            });
+            $scope.restaurant.$save(
+                function () {
+                    $location.path('/');
+                },
+                function(errors){
+                    _showValidationErrors($scope, errors);
+                });
         };
     }
 
@@ -30,9 +34,13 @@
     function restaurantsEditController($scope, $routeParams, $location, Restaurant) {
         $scope.restaurant = Restaurant.get({ id: $routeParams.id });
         $scope.edit = function () {
-            $scope.restaurant.$save(function () {
-                $location.path('/');
-            });
+            $scope.restaurant.$save(
+                function () {
+                    $location.path('/');
+                },
+                function(errors){
+                    _showValidationErrors(errors);
+                });
         };
     }
 
@@ -45,6 +53,11 @@
                 $location.path('/');
             });
         };
+    }
+
+    function _showValidationErrors($scope, errors) {
+        //eventually loop through errors from API, but since the we are still on beta 2 dont worry about it
+        $scope.validationErrors.push('Unable to save this restaurant. Sorry.');
     }
 
 })();

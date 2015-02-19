@@ -44,6 +44,13 @@ namespace BurritoBarn.api.Controllers
         [HttpPost]
         public IActionResult Post([FromBody]Restaurant restaurant)
         {
+            if (!ModelState.IsValid)
+            {
+                //TODO: This doesnt look like its available until beta 3, but when I try to upgrade to that it gets silly around my startup file
+                //return new BadRequestObjectResult(ModelState);
+                return new HttpStatusCodeResult(500);
+            }
+
             if (restaurant.Id == 0)
             {
                 db.Restaurants.Add(restaurant);
