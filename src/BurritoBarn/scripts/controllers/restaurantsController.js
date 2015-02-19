@@ -14,10 +14,11 @@
         $scope.restaurants = Restaurant.query();
     }
 
-    restaurantsAddController.$inject = ['$scope', '$location', 'Restaurant'];
+    restaurantsAddController.$inject = ['$scope', '$location', 'Restaurant', 'Cuisine'];
 
-    function restaurantsAddController($scope, $location, Restaurant) {
+    function restaurantsAddController($scope, $location, Restaurant, Cuisine) {
         $scope.restaurant = new Restaurant();
+        $scope.cuisines = Cuisine.query();
         $scope.add = function () {
             $scope.restaurant.$save(
                 function () {
@@ -29,10 +30,11 @@
         };
     }
 
-    restaurantsEditController.$inject = ['$scope', '$routeParams', '$location', 'Restaurant'];
+    restaurantsEditController.$inject = ['$scope', '$routeParams', '$location', 'Restaurant', 'Cuisine'];
 
-    function restaurantsEditController($scope, $routeParams, $location, Restaurant) {
+    function restaurantsEditController($scope, $routeParams, $location, Restaurant, Cuisine) {
         $scope.restaurant = Restaurant.get({ id: $routeParams.id });
+        $scope.cuisines = Cuisine.query();
         $scope.edit = function () {
             $scope.restaurant.$save(
                 function () {

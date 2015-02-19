@@ -1,0 +1,27 @@
+﻿<div>
+    <h1>
+        Cuisines
+    </h1>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Cuisine</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="cuisine in cuisines">
+                <td>
+                    <a href="/cuisines/delete/{{cuisine.Id}}" cl class="btn btn-danger btn-xs">remove</a>
+                </td>
+                <td>
+                    {{cuisine.Name}}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p>
+        <a href="/cuisines/add" class="btn btn-primary">Add Cuisine</a>
+    </p>
+</div>

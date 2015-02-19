@@ -4,7 +4,7 @@
     config.$inject = ['$routeProvider', '$locationProvider'];
 
     angular.module('burritoBarn', [
-        'ngRoute', 'restaurantServices'
+        'ngRoute', 'restaurantServices', "cuisineServices"
     ]).config(config);
 
     function config($routeProvider, $locationProvider) {
@@ -24,6 +24,18 @@
             .when('/restaurants/delete/:id', {
                 templateUrl: 'views/restaurant/delete.html',
                 controller: 'restaurantsDeleteController'
+            })
+            .when('/cuisines', {
+                templateUrl: 'views/cuisine/list.html',
+                controller: 'cuisinesController'
+            })
+            .when('/cuisines/add', {
+                templateUrl: 'views/cuisine/add.html',
+                controller: 'cuisinesController'
+            })
+            .when('/cuisines/delete/:id', {
+                templateUrl: 'views/cuisine/delete.html',
+                controller: 'cuisinesDeleteController'
             });
 
         $locationProvider.html5Mode(true);
